@@ -1,0 +1,203 @@
+html {
+    font-size: 14px;
+    font-family: 'YouYuan';
+}
+
+
+/*头部*/
+
+#head {
+    height: 4.5rem;
+    background-image: linear-gradient(90deg, #333, #111, #aaa);
+}
+
+#head .bg {
+    background: url(../images/0.png) repeat center;
+}
+
+#head .bg button:hover svg {
+    animation: chenge 2s ease-in-out infinite;
+}
+
+@keyframes chenge {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(0);
+    }
+    75% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+#head .navbar-brand span {
+    font-size: 1.7rem;
+    text-shadow: 4px 2px 6px #ccc;
+    animation: jumping 1s infinite alternate;
+}
+
+#head .navbar-brand span:nth-of-type(1) {
+    animation-delay: 0;
+}
+
+#head .navbar-brand span:nth-of-type(2) {
+    animation-delay: .15s;
+}
+
+#head .navbar-brand span:nth-of-type(3) {
+    animation-delay: .3s;
+}
+
+#head .navbar-brand span:nth-of-type(4) {
+    animation-delay: .45s;
+}
+
+#head .navbar-brand span:nth-of-type(5) {
+    animation-delay: .6s;
+}
+
+#head .navbar-brand span:nth-of-type(6) {
+    animation-delay: .75s;
+}
+
+#head .navbar-brand span:nth-of-type(7) {
+    animation-delay: .9s;
+}
+
+@keyframes jumping {
+    0% {
+        transform: translateY(0);
+        text-shadow: 4px 0px 6px #ccc;
+    }
+    100% {
+        transform: translateY(-15px);
+        text-shadow: 4px 6px 6px #ccc;
+    }
+}
+
+#myNav {
+    background-image: linear-gradient(#333, #222, #111);
+    left: 0;
+    top: 4.5rem;
+    z-index: 99999;
+}
+
+#myNav a {
+    color: #ccc
+}
+
+#myNav a:hover {
+    color: #fff;
+}
+
+.main {
+    background-image: linear-gradient( #333, #222, #111);
+}
+
+.main nav a {
+    width: 180px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.main nav a:hover,
+.main nav a.active {
+    background: rgba(255, 255, 255, .3);
+}
+
+.leftCon {
+    height: calc(100vh - 4.5rem);
+    background: url(../images/0.png) center;
+}
+
+.rightCon {
+    background: #e5e5e5;
+}
+
+.areaChart,
+.sexChart {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+}
+
+
+/* 用户名/退出 */
+
+.navbar .user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-left: 0;
+    color: #b3bcc5;
+    line-height: 4.5rem;
+    z-index: 9;
+}
+
+.navbar .user a {
+    text-decoration: none;
+}
+
+.navbar .user li {
+    height: 4.5rem;
+    padding: 0 40px;
+    display: block;
+}
+
+.navbar .user:hover {
+    background-color: #fff;
+    color: #354457;
+    cursor: pointer;
+}
+
+.navbar .user .logout {
+    display: none;
+}
+
+.navbar .user .logout a {
+    color: #354457;
+}
+
+.navbar .user .logout a:focus {
+    color: #ff5000;
+}
+
+.navbar .user:hover .logout {
+    display: block;
+}
+
+.navbar .user .logout:hover {
+    background-color: #ddd;
+}
+
+
+/* 翻页按钮 */
+
+.turn-page {
+    text-align: center;
+}
+
+.turn-page>div {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: dodgerblue;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.turn-page>ul {
+    vertical-align: text-top;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, .5);
+}

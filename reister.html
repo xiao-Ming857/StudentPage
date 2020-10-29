@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统注册</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <form action="#" id="register">
+        <h2>注册
+            <a href="./login.html">登录</a>
+        </h2>
+        <div>
+            <label for="username">
+                用户名:
+            </label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="account">
+                账号:
+            </label>
+            <input type="text" id="account" name="account">
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label for="rePassword">确认密码:</label>
+            <input type="password" id="rePassword" name="rePassword">
+        </div>
+        <div>
+            <label for=""></label>
+            <input class="btn" type="submit" value="注册" id="register-btn">
+            <input class="btn" type="reset" value="重置">
+        </div>
+    </form>
+    <!-- <script src="./js/ajax.js"></script> -->
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+        // var submitBtn = document.getElementById('register-btn');
+        // var form = document.getElementById('register');
+        // submitBtn.onclick = function(e) {
+        //     e.preventDefault();
+        //     var username = form.username.value;
+        //     var account = form.account.value;
+        //     var password = form.password.value;
+        //     var rePassword = form.rePassword.value;
+        //     if (username && account && password && rePassword) {
+        //         if (password == rePassword) {
+        //             var data = 'appkey=Xiaoming_1590306979323&username=' + username + '&account=' + account + '&password=' + password + '&rePassword=' + rePassword;
+        //             ajax('POST', 'http://open.duyiedu.com/api/student/stuRegister', data, function(result) {
+        //                 if (result.status == 'success') {
+        //                     alert(result.msg);
+        //                     location.href = './login.html';
+        //                 } else {
+        //                     alert(result.msg);
+        //                 }
+        //             }, true)
+        //         } else {
+        //             alert('两次密码不一致');
+        //         }
+        //     } else {
+        //         alert('请将信息填写完整！');
+        //     }
+        // }
+
+        $('#register-btn').click(function(e) {
+            e.preventDefault();
+            var form = $('#register')[0];
+            var username = form.username.value;
+            var account = form.account.value;
+            var password = form.password.value;
+            var rePassword = form.rePassword.value;
+            if (username && account && password && rePassword) {
+                if (password === rePassword) {
+                    $.ajax({
+                        url: 'http://open.duyiedu.com/api/student/stuRegister',
+                        type: 'post',
+                        data: {
+                            appkey: 'Xiaoming_1590306979323',
+                            username: username,
+                            account: account,
+                            password: password,
+                            rePassword: rePassword
+                        },
+                        dataType: 'json',
+                        success: function(result) {
+                            if (result.status == 'success') {
+                                alert(result.msg);
+                                location.href = './login.html';
+                            } else {
+                                alert(result.msg);
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

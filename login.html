@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统登录</title>
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <form action="#" id="login">
+        <h2>登录
+            <a href="./reister.html">注册</a>
+        </h2>
+        <div>
+            <label for="account">
+                账号:
+            </label>
+            <input type="text" id="account">
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password">
+        </div>
+        <div>
+            <label for=""></label>
+            <input class="btn" type="submit" value="提交" id="submit-btn">
+            <input class="btn" type="reset" value="重置">
+        </div>
+    </form>
+    <script src="./js/cookie.js"></script>
+    <!-- <script src="./js/ajax.js"></script> -->
+    <script src="./js/jquery-3.4.1.js"></script>
+    <script>
+        // var submitBtn = document.getElementById('submit-btn');
+        // var form = document.getElementById('login');
+        removeCookie('username');
+        $('#submit-btn').click(function(e) {
+            e.preventDefault();
+            // var account = form.account.value;
+            // var password = form.password.value;
+            var account = $('#login')[0].account.value;
+            var password = $('#login')[0].password.value;
+            if (password && account) {
+                // var data = 'appkey=Xiaoming_1590306979323&account=' + account + '&password=' + password;
+                // ajax('POST', 'http://open.duyiedu.com/api/student/stuLogin', data, function(result) {
+                //     if (result.status == 'success') {
+                //         alert(result.msg);
+                //         location.href = './studentMS.html';
+                //         setCookie('username', account); // 存储cookie（document.cookie = 'username=account';）
+                //     } else {
+                //         alert(result.msg);
+                //     }
+                // }, true);
+                $.ajax({
+                    url: 'http://open.duyiedu.com/api/student/stuLogin',
+                    type: 'post',
+                    data: {
+                        appkey: 'Xiaoming_1590306979323',
+                        account: account,
+                        password: password
+                    },
+                    dataType: 'json',
+                    success: function(result) {
+                        console.log(result)
+                        if (result.status == 'success') {
+                            alert(result.msg);
+                            setCookie('username', account);
+                            location.href = './studentMS.html';
+                        } else {
+                            alert(result.msg);
+                        }
+                    }
+                })
+            } else {
+                alert('请将信息填写完整！');
+            }
+        })
+    </script>
+
+</body>
+
+</html>

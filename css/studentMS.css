@@ -1,0 +1,468 @@
+:root {
+    width: 100%;
+}
+
+body {
+    background-color: #eee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* input,
+button {
+    border: none;
+    background: none;
+    outline: none;
+} */
+
+html,
+body {
+    font-size: 14px;
+    color: #333;
+    font-family: 'YouYuan';
+}
+
+
+/*头部*/
+
+.header {
+    height: 70px;
+    /* background-color: #354457; */
+    background-image: linear-gradient(90deg, #333, #111, #aaa);
+    color: #b3bcc5;
+    line-height: 70px;
+    font-size: 14px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../images/0.png);
+    opacity: .05;
+    z-index: -1;
+}
+
+.header .logo {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.header .logo img {
+    width: 50px;
+    vertical-align: middle;
+}
+
+.header .logo span {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-shadow: 4px 2px 6px #ccc;
+    margin-left: 1rem;
+    animation: jumping 1s infinite alternate;
+}
+
+.header .logo span:nth-of-type(1) {
+    animation-delay: 0;
+}
+
+.header .logo span:nth-of-type(2) {
+    animation-delay: .15s;
+}
+
+.header .logo span:nth-of-type(3) {
+    animation-delay: .3s;
+}
+
+.header .logo span:nth-of-type(4) {
+    animation-delay: .45s;
+}
+
+.header .logo span:nth-of-type(5) {
+    animation-delay: .6s;
+}
+
+.header .logo span:nth-of-type(6) {
+    animation-delay: .75s;
+}
+
+.header .logo span:nth-of-type(7) {
+    animation-delay: .9s;
+}
+
+@keyframes jumping {
+    0% {
+        transform: translateY(0);
+        text-shadow: 4px 0px 6px #ccc;
+    }
+    100% {
+        transform: translateY(-20px);
+        text-shadow: 4px 6px 6px #ccc;
+    }
+}
+
+.header .btn {
+    display: none;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.header .btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+.header .btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    transition: .3s ease-in-out;
+}
+
+.header .btn:hover span {
+    animation: chenge 2s ease-in-out infinite;
+}
+
+@keyframes chenge {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(0);
+    }
+    75% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.header .drop-list {
+    display: none;
+    width: 100vw;
+    background-image: linear-gradient(#333, #222, #111);
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.header .drop-list li {
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 40px;
+}
+
+.header .drop-list li:hover {
+    color: #fff;
+}
+
+
+/* 用户名/退出 */
+
+.header .user {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #b3bcc5;
+}
+
+.header .user li {
+    padding: 0 40px;
+}
+
+.header .user:hover {
+    background-color: #fff;
+    color: #354457;
+    cursor: pointer;
+}
+
+.header .user .logout {
+    display: none;
+}
+
+.header .user .logout a {
+    color: #354457;
+}
+
+.header .user .logout a:focus {
+    color: #ff5000;
+}
+
+.header .user:hover .logout {
+    display: block;
+}
+
+.header .user .logout:hover {
+    background-color: #ddd;
+}
+
+
+/*左栏*/
+
+.left-menu {
+    position: fixed;
+    width: 200px;
+    height: calc(100% - 70px);
+    /* background-color: #4D5E70; */
+    background-image: linear-gradient(#333, #222, #111);
+    line-height: 40px;
+    font-size: 14px;
+    color: #b3bcc5;
+}
+
+.left-menu dt {
+    padding-left: 8px;
+    font-weight: bold;
+}
+
+.left-menu dd {
+    padding-left: 40px;
+    border-top-left-radius: 50px 40px;
+    transition: all .3s ease-in-out;
+}
+
+.left-menu dd:hover {
+    transition: all .3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #354457;
+    cursor: pointer;
+}
+
+.left-menu .active {
+    background-color: #ddd !important;
+    color: #354457;
+}
+
+
+/*数据内容*/
+
+.right-content {
+    position: relative;
+    margin-top: 70px;
+    margin-left: 200px;
+    background-color: #eee;
+}
+
+#student-list {
+    width: 100%;
+}
+
+.tab-content-item {
+    display: none;
+}
+
+.tab-content-item.show-list {
+    display: block !important;
+}
+
+#student-list table {
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+#student-list thead {
+    background-color: #E3E8EE;
+    color: #646987;
+    z-index: 8888;
+}
+
+#student-list tbody {
+    background-color: #fff;
+}
+
+#student-list .btn {
+    padding: 3px 10px;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+#student-list .btn.edit {
+    background-color: #5cb85c;
+}
+
+#student-list .btn.remove {
+    background-color: #d9534f;
+}
+
+#student-add {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    display: none;
+}
+
+#add-student-form,
+#edit-student-form {
+    width: 400px;
+    margin: 50px auto;
+}
+
+form div {
+    margin: 10px 0;
+}
+
+form label:not(.sex) {
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+    margin-right: 10px;
+}
+
+form .btn {
+    margin-left: 66px;
+    padding: 5px 25px !important;
+}
+
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.modal-contnet {
+    width: 500px;
+    height: 400px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.modal-contnet .btn {
+    margin: 20px 140px;
+    border-width: 2px !important;
+    border-style: outset !important;
+    border-color: buttonface !important;
+    border-image: initial !important;
+    color: #000 !important;
+}
+
+.modal-contnet #edit-number:focus {
+    outline: none;
+}
+
+
+/* 翻页按钮 */
+
+.turn-page {
+    text-align: center;
+}
+
+.turn-page>div {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: dodgerblue;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* 搜索框 */
+
+.search {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+}
+
+.search label {
+    font-size: 16px;
+    color: #646987;
+    font-weight: 800;
+}
+
+.search #search-word {
+    font-size: 16px;
+    width: 200px;
+    height: 30px;
+    border: none;
+}
+
+.search #search-submit {
+    height: 28px;
+    line-height: 28px;
+    padding: 0 10px;
+    outline: none;
+    display: inline-block;
+    border: none;
+    background-color: #354457;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@media all and (max-width: 768px) {
+    .header .btn {
+        display: block;
+    }
+    .header .logo {
+        transform: translate(200px)
+    }
+    .left-menu {
+        display: none;
+    }
+    .right-content {
+        margin-left: 0px;
+    }
+}
+
+.tab-content-item.echarts .areaChart,
+.tab-content-item.echarts .sexChart {
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    margin: 55px 50px auto 50px;
+    vertical-align: top;
+    border: 1px solid #000;
+}
